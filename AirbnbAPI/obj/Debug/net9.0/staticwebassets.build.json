@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "kvwe2m1AEuJ+CE4uYpXVDUidzRYta7ODLuEo+sfHBEk=",
+  "Source": "AirbnbAPI",
+  "BasePath": "_content/AirbnbAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
