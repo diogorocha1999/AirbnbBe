@@ -2,9 +2,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AirbnbAPI.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         // Tabela de usuários no banco de dados
         public DbSet<User> Users { get; set; }
@@ -14,5 +13,15 @@ namespace AirbnbAPI.Data
 
         // Tabela de reservas no banco de dados
         public DbSet<Booking> Bookings { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Configurar precisão para PricePerNight
+            modelBuilder.Entity<Property>()
+                .Property(p => p.PricePerNight)
+                .HasColumnType("decimal(18,2)"); // Define precisão e escala
+        }
     }
 }
